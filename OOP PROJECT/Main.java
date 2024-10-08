@@ -8,7 +8,7 @@ public class Main {
                 ui.getUserInput();
                 needToRerun = false;
             } catch (Exception e) {
-                System.out.println("An error occurred: " + e);
+                System.out.println("An error occurred. Please try Again. ");
         }
     }
 }

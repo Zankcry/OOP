@@ -37,12 +37,22 @@ public class UserInterface {
     }
 
     private void createSubscription() {
-        System.out.println("Enter New Id: ");
+        System.out.print("Enter New Id: ");
         int userId = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("Enter User Name: ");
+        System.out.print("Enter User Name: ");
         String user = scanner.nextLine();
-        ServiceSubscription sub = new ServiceSubscription(userId, user, "2024-09-01", "2025-09-01", "Active", "Regular", "Monthly");
+        System.out.print("Enter Start date: ");
+        String startDate = scanner.nextLine();
+        System.out.print("Enter End date: ");
+        String endDate = scanner.nextLine();
+        System.out.print("Enter Current Status: ");
+        String status = scanner.nextLine();
+        System.out.print("Enter Service type (Regular/Premium): ");
+        String serviceType = scanner.nextLine();
+        System.out.print("Enter Billing Cycle (Monthly, Annual): ");
+        String cycle = scanner.nextLine();
+        ServiceSubscription sub = new ServiceSubscription(userId, user, startDate, endDate, status, serviceType, cycle);
         subscriptionManager.createSubscription(sub);
     }
 
