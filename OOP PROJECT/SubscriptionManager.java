@@ -17,7 +17,16 @@ public class SubscriptionManager{
             System.out.println("Subscription not found.");
         }
     }
-
+    
+    public Subscription searchByID(int id) {
+        for (Subscription sub : subscriptions) {
+            if (sub.id == id) {
+                return sub;
+            }
+        }
+        return null;
+    }
+    
     public void upgradeToPremium(int id) {
         Subscription sub = findSubscriptionById(id);
         if (sub != null && sub instanceof ServiceSubscription) {
@@ -46,11 +55,6 @@ public class SubscriptionManager{
     }
 
     private Subscription findSubscriptionById(int id) {
-        for (Subscription sub : subscriptions) {
-            if (sub.id == id) {
-                return sub;
-            }
-        }
-        return null;
+        return searchByID(id);
     }
 }

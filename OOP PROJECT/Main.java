@@ -1,12 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        boolean needToRerun = true;
+        boolean run = true;
 
-        while (needToRerun) {
+        while (run) {
             try {
                 UserInterface ui = new UserInterface();
                 ui.getUserInput();
-                needToRerun = false;
+                run = false;
             } catch (Exception e) {
                 System.out.println("An error occurred. Please try Again. ");
         }

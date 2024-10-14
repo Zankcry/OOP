@@ -1,4 +1,4 @@
-public abstract class Subscription {
+public class Subscription {
     protected int id;
     protected String user;
     protected String startDate;
@@ -13,7 +13,14 @@ public abstract class Subscription {
         this.currentStatus = currentStatus;
     }
 
-    public abstract void displayInfo();
+    public void displayInfo(){
+        System.out.println("Service Subscription Info:");
+        System.out.println("ID: " + id);
+        System.out.println("User: " + user);
+        System.out.println("Status: " + currentStatus);
+        System.out.println("Start Date: " + startDate);
+        System.out.println("End Date: " + endDate);
+    }
     
     public void renewSubscription(String newEndDate) {
         this.endDate = newEndDate;
