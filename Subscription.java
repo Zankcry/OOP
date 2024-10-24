@@ -43,7 +43,7 @@ public abstract class Subscription implements ISubscription {
 
     @Override
     public void displayInfo() {
-        System.out.println("Subscription Info:");
+        System.out.println("\n--- Subscription Info ---");
         displayBasicInfo();
         displaySpecificInfo();
     }

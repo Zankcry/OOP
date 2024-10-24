@@ -9,12 +9,13 @@ public class UserInterface {
 
     public void getUserInput() {
         while (true) {
-            System.out.println("--- Subscription Manager ---");
+            System.out.println("\n--- Subscription Manager ---");
             System.out.println("1. Create Subscription");
             System.out.println("2. Update Subscription");
             System.out.println("3. Cancel Subscription");
             System.out.println("4. Search Subscription by ID");
-            System.out.println("5. Exit");
+            System.out.println("5. Renew Subscription");
+            System.out.println("6. Exit");
             System.out.print("Enter choice: ");
             int choice = getValidIntInput(1, 6);
             handleChoice(choice);
@@ -36,8 +37,17 @@ public class UserInterface {
                 viewSubscription();
                 break;
             case 5:
+                renewSubscription();
+                break;
+            case 6:
                 System.exit(0);
         }
+    }
+
+    private void renewSubscription() {
+        int id = getValidIntInput("Enter Subscription ID to renew: ", 1, Integer.MAX_VALUE);
+        String newEndDate = getValidDateInput("Enter new end date (YYYY-MM-DD): ");
+        ((SubscriptionManager) subscriptionManager).renewSubscription(id, newEndDate);
     }
 
     private void createSubscription() {
@@ -58,6 +68,7 @@ public class UserInterface {
         System.out.println("Choose update option:");
         System.out.println("1. Update status");
         System.out.println("2. Upgrade to Premium");
+
         int updateChoice = getValidIntInput("Enter choice: ", 1, 2);
 
         switch (updateChoice) {
@@ -127,7 +138,7 @@ public class UserInterface {
     }
 
     private String getValidOption(String prompt, String[] options) {
-        System.out.println(prompt + " (" + String.join("/", options) + "): ");
+        System.out.print(prompt + " (" + String.join("/", options) + "): ");
         while (true) {
             String input = scanner.nextLine().trim();
             for (String option : options) {

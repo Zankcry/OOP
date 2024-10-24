@@ -40,6 +40,15 @@ public class SubscriptionManager implements ISubscriptionManager {
         }
     }
 
+    public void renewSubscription(int id, String newEndDate) {
+        ISubscription sub = findSubscriptionById(id);
+        if (sub != null) {
+            sub.renewSubscription(newEndDate);
+        } else {
+            System.out.println("Subscription not found.");
+        }
+    }
+
     @Override
     public void cancelSubscription(int id) {
         ISubscription sub = findSubscriptionById(id);
